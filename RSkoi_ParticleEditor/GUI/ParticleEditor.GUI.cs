@@ -38,6 +38,10 @@ namespace RSkoi_ParticleEditor {
                 if (Singleton<Studio.Studio>.Instance.dicInfo.TryGetValue(selectNodes[0], out ObjectCtrlInfo objectCtrlInfo)) {
                     if (objectCtrlInfo is OCIItem ociItem) {
                         parentPS = ociItem.objectItem.GetComponentInChildren<ParticleSystem>();
+						if (parentPS == null) {
+							showWindow = false;
+							return;
+						}
                         objectCtrl = objectCtrlInfo;
                     }
                 }
